@@ -3,7 +3,9 @@ import StudentCard from "../components/StudentCard";
 
 import studentsData from "../assets/students.json";
 
-function HomePage() {
+import { Link } from "react-router-dom";
+
+function HomePage(props) {
   // eslint-disable-next-line no-unused-vars
   const [students, setStudents] = useState(studentsData);
 
@@ -21,7 +23,9 @@ function HomePage() {
       {students &&
         students.map((student) => {
           return (
+            <Link to={`/studentDetailsPage/${student._id}`} key={student._id}>
               <StudentCard key={student._id} {...student} />
+            </Link>
           );
         })}
     </div>
@@ -29,3 +33,9 @@ function HomePage() {
 }
 
 export default HomePage;
+
+
+
+
+
+
